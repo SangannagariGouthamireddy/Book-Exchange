@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Books</title>  
+    {% include 'bootstrap.html' %}
+  </head>
+  <body>
+    {% include 'nav.html' %}
+    {% include 'banner.html' %}
+
+    <div class="container">
+      <h1 class="text-center mt-2 mb-4">
+        My Books
+      </h1>
+ 
+      
+      <div>
+        {% for book in books %}
+          <div class="border-bottom row" style="margin-bottom:16px;padding-bottom:8px;">
+            <div class="col-10">
+              <h4 
+                style="color:rgb(120,120,120); margin-bottom:4px;">
+                {{book['title']}}
+              </h4>
+              <div>
+                <b>Genre:</b> {{book['category']}}
+              </div>
+              {% if 'price' in book %}
+              <div>
+                <b>Price (in Rs):</b> {{book['price']}}
+              </div>
+              {% endif %}
+            </div>
+            
+
+          </div>
+
+        {% endfor %}
+      </div>
+
+    </div>
+    {% include 'footer.html' %}
+  </body>
+</html>
